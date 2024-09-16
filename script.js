@@ -3,14 +3,14 @@ const menuBtn = document.querySelector("#menu-btn");
 menuBtn.addEventListener("click", (event) => {
     event.preventDefault();
    
-    getSidebar().classList.add("show");
+    getSidebarElement().classList.add("show");
 })
 
 const closeBtn = document.querySelector("#close-btn");
 closeBtn.addEventListener("click", (event) => {
     event.preventDefault();
 
-    getSidebar().classList.remove("show");
+    getSidebarElement().classList.remove("show");
 })
 
 ////////SPA SPA\\\\\\
@@ -19,11 +19,18 @@ closeBtn.addEventListener("click", (event) => {
 ////////SPA SPA\\\\\\
 ////////SPA SPA\\\\\\
 
+let containerDom = document.getElementById("container");
+
+let sidbarHomeDom = document.querySelector("#sidebar-home");
+let sidebarAboutDom = document.querySelector("#sidebar-about");
+let sidbarContactDom = document.querySelector("#sidebar-contact");
+
+let navHomeDom = document.querySelector("#nav-home");
+let navAboutDom = document.querySelector("#nav-about");
+let navContactDom = document.querySelector("#nav-contact");
 
 
-let homeDom = document.querySelector("#sidebar-home");
-let aboutDom = document.querySelector("#sidebar-about");
-let contactDom = document.querySelector("#sidebar-contact");
+
 
 window.onload = fetchPage("home.html");
 
@@ -40,62 +47,96 @@ window.addEventListener("popstate", () => {
             break;
     }
     
-})
+});
 
-homeDom.addEventListener("click", (event) => {
+sidbarHomeDom.addEventListener("click", (event) => {
     event.preventDefault();
+
     if(event.currentTarget){
-        getSidebar().classList.remove("show");
+        getSidebarElement().classList.remove("show");
         history.pushState({page: 0}, "", "home.html");
         fetchPage("home.html");
     }
 });
 
-aboutDom.addEventListener("click", (event) => {
+navHomeDom.addEventListener("click", (event) => {
     event.preventDefault();
+
     if(event.currentTarget){
-        getSidebar().classList.remove("show");
+        getSidebarElement().classList.remove("show");
+        history.pushState({page: 0}, "", "home.html");
+        fetchPage("home.html");
+    }
+});
+
+sidebarAboutDom.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    if(event.currentTarget){
+        getSidebarElement().classList.remove("show");
         history.pushState({page: 1}, "", "about.html");
         fetchPage("about.html");
     }
 });
 
-contactDom.addEventListener("click", (event) => {
+navAboutDom.addEventListener("click", (event) => {
     event.preventDefault();
+
     if(event.currentTarget){
-        getSidebar().classList.remove("show");
+        getSidebarElement().classList.remove("show");
+        history.pushState({page: 1}, "", "about.html");
+        fetchPage("about.html");
+    }
+});
+
+sidbarContactDom.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    if(event.currentTarget){
+        getSidebarElement().classList.remove("show");
+        history.pushState({page: 2}, "", "contact.html");
+        fetchPage("contact.html");
+    }
+});
+
+navContactDom.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    if(event.currentTarget){
+        getSidebarElement().classList.remove("show");
         history.pushState({page: 2}, "", "contact.html");
         fetchPage("contact.html");
     }
 });
 
 
-let containerDom = document.getElementById("container");
+
 
 function fetchPage(filename){
     if(typeof filename != "string") return;
-
+    console.log(fetch(filename));
     fetch(filename)
-        .then(response => { 
-            if(response.status == 200){
+        .then(response => {
+           
+            if(response.status == 200) {
+                // console.log(showLoading());
+                showLoading();
                 return response.text()
             }
-            else {
-                showLoading();
-            }
-            })
+        })
         .then(data => containerDom.innerHTML = data)
-    
-}
+};
 
-function getSidebar(){
+function getSidebarElement(){
     const sidbar = document.querySelector(".sidebar");
     return sidbar;
-}
+};
 
 function showLoading(){
     const imgEl = document.createElement("img");
-    imgEl.src = "./images/loading2.png";
+    imgEl.src = "./images/redLoading.png";
     containerDom.append(imgEl);
-}
+
+    return imgEl.src
+};
 
