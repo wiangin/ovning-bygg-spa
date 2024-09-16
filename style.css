@@ -80,9 +80,11 @@ nav li:first-child{
 }
 
 form{
+    text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: center;
     gap: 10px;
 }
 

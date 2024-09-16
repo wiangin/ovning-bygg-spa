@@ -76,11 +76,26 @@ function fetchPage(filename){
     if(typeof filename != "string") return;
 
     fetch(filename)
-        .then(response => {return response.text()})
+        .then(response => { 
+            if(response.status == 200){
+                return response.text()
+            }
+            else {
+                showLoading();
+            }
+            })
         .then(data => containerDom.innerHTML = data)
+    
 }
 
 function getSidebar(){
     const sidbar = document.querySelector(".sidebar");
     return sidbar;
 }
+
+function showLoading(){
+    const imgEl = document.createElement("img");
+    imgEl.src = "./images/loading2.png";
+    containerDom.append(imgEl);
+}
+
