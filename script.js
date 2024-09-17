@@ -51,7 +51,6 @@ window.addEventListener("popstate", () => {
 
 logoDom.addEventListener("click", (event) => {
     event.preventDefault();
-    console.log("hej");
     window.onload = fetchPage("home.html");
 })
 
