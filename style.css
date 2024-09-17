@@ -26,9 +26,6 @@ nav ul {
 .nav-menu a{
     cursor: pointer;
 }
-/* .nav-menu .hide-on-mobile:hover{
-    background-color: yellow;
- } */
 
 nav li{
     height: 40px;
@@ -44,7 +41,7 @@ nav a{
 }
 
 nav a:hover{
-    background-color: yellow;
+    transform: translateY(-8%);
 }
 
 nav li:first-child{
