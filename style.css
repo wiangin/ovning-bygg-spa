@@ -23,13 +23,20 @@ nav ul {
     cursor: pointer;
 }
 
+.nav-menu a{
+    cursor: pointer;
+}
+.nav-menu .hide-on-mobile:hover{
+    background-color: yellow;
+ }
+
 nav li{
     height: 40px;
 }
 
 nav a{
     height: 100%;
-    padding: 0 30px;
+    padding: 4px 30px;
     display: flex;
     align-items: center;
 
@@ -61,22 +68,47 @@ nav li:first-child{
     display: flex;
     opacity: 1;
     transform: translateX(0);
-    color: black;
+    /* color: black; */
     cursor: pointer;
 }
 
 .sidebar li{
-    width: 100%;
+    width: 80%;
+    height: 50px;
+}
+
+.sidebar .sidebar-menu{
+    color: black;
+    cursor: pointer;
+}
+
+.sidebar .sidebar-menu:hover{
+    opacity: 0.7;
 }
 
 #close-btn{
-    padding-left: 24px;
-    padding-top: 10px;
+    padding-left: 64px;
+    padding-top: 15px;
     cursor: pointer;
 }
 
 #container{
     height: 100vh;
+}
+
+#container div{
+    box-sizing: border-box;
+}
+
+#container h1 {
+color: red;
+padding: 30px;
+text-align: center;
+}
+
+#container p {
+    
+padding-left: 20px;
 }
 
 form{
@@ -98,6 +130,7 @@ footer{
     .hide-on-mobile{
         display: none;
     }
+
     .show-sidebar{
         width: 100%;
     }

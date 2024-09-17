@@ -117,10 +117,10 @@ function fetchPage(filename){
     console.log(fetch(filename));
     fetch(filename)
         .then(response => {
-           
+            showLoading();
             if(response.status == 200) {
                 // console.log(showLoading());
-                showLoading();
+               
                 return response.text()
             }
         })
