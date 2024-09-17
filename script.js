@@ -20,7 +20,7 @@ closeBtn.addEventListener("click", (event) => {
 ////////SPA SPA\\\\\\
 
 let containerDom = document.getElementById("container");
-
+let logoDom = document.querySelector("#logo");
 let sidbarHomeDom = document.querySelector("#sidebar-home");
 let sidebarAboutDom = document.querySelector("#sidebar-about");
 let sidbarContactDom = document.querySelector("#sidebar-contact");
@@ -48,6 +48,12 @@ window.addEventListener("popstate", () => {
     }
     
 });
+
+logoDom.addEventListener("click", (event) => {
+    event.preventDefault();
+    console.log("hej");
+    window.onload = fetchPage("home.html");
+})
 
 sidbarHomeDom.addEventListener("click", (event) => {
     event.preventDefault();
