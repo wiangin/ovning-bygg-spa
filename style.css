@@ -46,6 +46,7 @@ nav a:hover{
 
 nav li:first-child{
     margin-right: auto;
+    overflow: hidden;
 }
 
 .sidebar{

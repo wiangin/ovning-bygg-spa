@@ -111,19 +111,28 @@ navContactDom.addEventListener("click", (event) => {
     }
 });
 
-function fetchPage(filename){
+async function fetchPage(filename){
     if(typeof filename != "string") return;
-    console.log(fetch(filename));
-    fetch(filename)
-        .then(response => {
-            showLoading();
-            if(response.status == 200) {
-                // console.log(showLoading());
+    
+    // console.log(fetch(filename));
+    // fetch(filename)
+    //     .then(response => {
+    //         showLoading();
+    //         if(response.status == 200) {
+    //             // console.log(showLoading());
                
-                return response.text()
-            }
-        })
-        .then(data => containerDom.innerHTML = data)
+    //             return response.text()
+    //         }
+    //     })
+    //     .then(data => containerDom.innerHTML = data)
+
+    const response = await fetch(filename);
+    showLoading();
+    
+    const data = await response.text();
+    
+    return containerDom.innerHTML = data;
+   
 };
 
 function getSidebarElement(){
