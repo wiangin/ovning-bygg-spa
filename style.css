@@ -92,7 +92,7 @@ nav li:first-child{
 }
 
 #container{
-    height: 82vh;
+    height: 83vh;
 }
 
 #container div{
@@ -106,8 +106,7 @@ text-align: center;
 }
 
 #container p {
-    
-padding: 0 40px;
+    padding: 0 40px;
 }
 
 form{
