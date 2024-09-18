@@ -130,6 +130,7 @@ async function fetchPage(filename){
     showLoading();
     
     const data = await response.text();
+    // console.log(data);
     
     return containerDom.innerHTML = data;
    
