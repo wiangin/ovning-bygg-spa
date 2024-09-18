@@ -29,9 +29,6 @@ let navHomeDom = document.querySelector("#nav-home");
 let navAboutDom = document.querySelector("#nav-about");
 let navContactDom = document.querySelector("#nav-contact");
 
-
-
-
 window.onload = fetchPage("home.html");
 
 window.addEventListener("popstate", () => {
@@ -113,9 +110,6 @@ navContactDom.addEventListener("click", (event) => {
         fetchPage("contact.html");
     }
 });
-
-
-
 
 function fetchPage(filename){
     if(typeof filename != "string") return;
